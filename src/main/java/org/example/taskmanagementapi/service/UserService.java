@@ -1,5 +1,5 @@
 package org.example.taskmanagementapi.service;
-import org.example.taskmanagementapi.entity.user;
+import org.example.taskmanagementapi.entity.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -8,11 +8,11 @@ import java.util.List;
 @Service
 public class UserService {
 
-    List<user> users =
+    List<User> users =
             new ArrayList<>();
 
     // Add User
-    public user addUser(user user) {
+    public User addUser(User user) {
 
         users.add(user);
 
@@ -20,15 +20,15 @@ public class UserService {
     }
 
     // Get All Users
-    public List<user> getAllUsers() {
+    public List<User> getAllUsers() {
 
         return users;
     }
 
     // Get User By ID
-    public user getUserById(int id) {
+    public User getUserById(int id) {
 
-        for (user user : users) {
+        for (User user : users) {
 
             if (user.getId() == id) {
 
@@ -40,11 +40,11 @@ public class UserService {
     }
 
     // Update User
-    public user updateUser(
+    public User updateUser(
             int id,
-            user updatedUser) {
+            User updatedUser) {
 
-        for (user user : users) {
+        for (User user : users) {
 
             if (user.getId() == id) {
 
