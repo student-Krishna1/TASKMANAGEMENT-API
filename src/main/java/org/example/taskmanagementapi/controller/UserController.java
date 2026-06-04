@@ -1,14 +1,9 @@
 package org.example.taskmanagementapi.controller;
 import org.example.taskmanagementapi.entity.User;
-import org.example.taskmanagementapi.repository.UserRepository;
 import org.example.taskmanagementapi.service.UserService;
-
 import jakarta.validation.Valid;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -29,5 +24,21 @@ public class UserController {
     public List<User> getUsers() {
 
         return service.getAllUsers();
+    }
+    @GetMapping("/users/{id}")
+    public User getUserById(@PathVariable int id) {
+
+        return service.getUserById(id);
+    }
+    @PutMapping("/users/{id}")
+    public User updateUser(
+            @PathVariable int id,
+            @RequestBody User user){
+        return service.updateUser(id,user);
+    }
+    @DeleteMapping("/users/{id}")
+    public String deleteUser(
+            @PathVariable int id){
+        return service.deleteUser(id);
     }
 }
